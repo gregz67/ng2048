@@ -119,8 +119,8 @@ module.exports = function (grunt) {
         dest: '<%= yeoman.dist %>/scripts/templates.js',
         options: {
           cwd: '<%= yeoman.app %>',
-          url:    function(url) { 
-            return url.replace('app/', ''); 
+          url:    function(url) {
+            return url.replace('app/', '');
           },
           usemin: 'scripts/templates.js',
           htmlmin:  '<%= htmlmin.app %>'

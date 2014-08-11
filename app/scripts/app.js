@@ -10,5 +10,16 @@
  */
 angular
   .module('twentyfortyeightApp', [
-    'ngCookies'
-  ]);
+    'ngCookies',
+    'Game',
+    'Grid'
+  ])
+  .controller('GameController', function(GameManager) {
+    this.game = GameManager;
+
+    this.newGame = function() {
+      this.game.newGame();
+    };
+
+    this.newGame();
+  });

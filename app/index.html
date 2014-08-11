@@ -10,7 +10,7 @@
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
@@ -63,8 +63,12 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/grid/grid.js"></script>
+    <script src="scripts/grid/grid.directive.js"></script>
+    <script src="scripts/grid/tile.directive.js"></script>
+    <script src="scripts/game/game.js"></script>
+    <!-- endbuild -->
 </body>
 </html>
