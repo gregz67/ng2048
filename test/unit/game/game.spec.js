@@ -33,6 +33,17 @@ describe('Game Module', function() {
       expect(gameManager).toBeDefined();
     });
 
+    describe('.reinit', function() {
+
+      beforeEach(function() {
+        gameManager.reinit();
+      });
+
+      it('should have a currentScore of 0', function() {
+        expect(gameManager.currentScore).toEqual(0);
+      });
+    });
+
     describe('.newGame', function() {
       it('should call the GridService to build an empty board', function() {
         spyOn(_gridService, 'buildEmptyGameBoard').andCallThrough();
@@ -48,6 +59,17 @@ describe('Game Module', function() {
         spyOn(gameManager, 'reinit').andCallThrough();
         gameManager.newGame();
         expect(gameManager.reinit).toHaveBeenCalled();
+      });
+    });
+
+    describe('.move', function() {
+      xit('should return false if the user has already won the game', function() {
+        gameManager.won = true;
+        spyOn(gameManager, 'move').andCallThrough();
+        gameManager.move().then(function(res) {
+          expect(res).toBeFalsy();
+        });
+        $rootScope.$digest();
       });
     });
 

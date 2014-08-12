@@ -5,7 +5,24 @@ describe('Grid Module', function() {
   beforeEach(module('Grid'));
 
   describe('TileModel', function() {
+    var tileModel, tile;
+    beforeEach(inject(function(TileModel) {
+      tileModel = TileModel;
+    }));
 
+    beforeEach(function() {
+      tile = new tileModel({x: 1, y: 1}, 2);
+    });
+
+    it('should save its own x coordinate', function() {
+      expect(tile.x).toEqual(1);
+    });
+    it('should save its own y coordinate', function() {
+      expect(tile.y).toEqual(1);
+    });
+    it('should save its own value', function() {
+      expect(tile.value).toEqual(2);
+    });
   });
 
   describe('GridService', function() {
@@ -44,9 +61,11 @@ describe('Grid Module', function() {
         gridService.buildEmptyGameBoard();
         expect(gridService.tiles).toEqual(nullArr);
       });
-
     });
 
+    describe('.tileMatchesAvailable', function() {
+
+    });
   });
 
 });
