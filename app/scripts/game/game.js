@@ -10,6 +10,14 @@ angular.module('Game', [ 'Grid', 'ngCookies'])
     this.newGame = function() {
       GridService.buildEmptyGameBoard();
       GridService.buildStartingPosition();
+      this.reinit();
+    };
+
+    this.reinit = function() {
+      this.gameOver = false;
+      this.win = false;
+      this.currentScore = 0;
+      this.highScore = 0; // TODO
     };
 
     // handle the move action
