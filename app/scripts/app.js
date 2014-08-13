@@ -11,6 +11,7 @@
 angular
   .module('twentyfortyeightApp', [
     'ngCookies',
+    'ngAnimate',
     'Game',
     'Grid',
     'Keyboard'
