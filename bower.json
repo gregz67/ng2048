@@ -10,7 +10,7 @@
     "angular-route": "1.3.0-beta.4",
     "angular-cookies": "1.3.0-beta.4",
     "angular-animate": "1.3.0-beta.4",
-    "angular-touch": "~1.2.22"
+    "angular-gestures": "~0.2.3"
   },
   "devDependencies": {
     "angular-mocks": "1.2.15",

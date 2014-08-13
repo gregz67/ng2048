@@ -168,8 +168,8 @@ angular.module('Grid', [])
       return false;
     };
 
-    this.traversalDirections = function(key) {
-      var vector = vectors[key];
+    this.traversalDirections = function(direction) {
+      var vector = vectors[direction];
       var positions = {
         x: [],
         y: []
@@ -192,8 +192,8 @@ angular.module('Grid', [])
       return positions;
     };
 
-    this.calculateNextPosition = function(cell, key) {
-      var vector = vectors[key];
+    this.calculateNextPosition = function(cell, direction) {
+      var vector = vectors[direction];
       var previous;
 
       do {

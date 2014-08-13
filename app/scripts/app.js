@@ -12,16 +12,18 @@ angular
   .module('twentyfortyeightApp', [
     'ngCookies',
     'ngAnimate',
-    'ngTouch',
+    'angular-gestures',
     'Game',
     'Grid',
-    'Keyboard'
+    'Keyboard',
+    'Gestures'
   ])
-  .controller('GameController', function(GameManager, KeyboardService) {
+  .controller('GameController', function(GameManager, KeyboardService, GesturesService, $scope) {
     this.game = GameManager;
 
     this.newGame = function() {
       KeyboardService.init();
+      GesturesService.init();
       this.game.newGame();
       this.startGame();
     };
@@ -29,10 +31,17 @@ angular
     this.startGame = function() {
       var self = this;
 
-      KeyboardService.on(function(key) {
-        self.game.move(key);
+      KeyboardService.on(function(direction) {
+        self.game.move(direction);
+      });
+
+      GesturesService.on(function(direction) {
+        self.game.move(direction);
       });
     };
 
     this.newGame();
+
+    $scope.handleGesture = angular.noop;
+
   });

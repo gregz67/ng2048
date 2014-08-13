@@ -22,12 +22,12 @@ angular.module('Game', [ 'Grid', 'ngCookies'])
     };
 
     // handle the move action
-    this.move = function(key) {
+    this.move = function(direction) {
       var game = this;
       var f = function() {
         var hasMoved = false,
           hasWon = false,
-          positions = GridService.traversalDirections(key);
+          positions = GridService.traversalDirections(direction);
 
         if (game.won) {
           return false;
@@ -42,7 +42,7 @@ angular.module('Game', [ 'Grid', 'ngCookies'])
             var tile = GridService.getCellAt(originalPosition);
 
             if (tile) {
-              var cell = GridService.calculateNextPosition(tile, key),
+              var cell = GridService.calculateNextPosition(tile, direction),
                 next = cell.next;
 
               if (next && next.value === tile.value && !next.merged) {
@@ -95,17 +95,17 @@ angular.module('Game', [ 'Grid', 'ngCookies'])
 
     this.getHighScore = function() {
       return parseInt($cookieStore.get('ng-2048.highScore')) || 0;
-    }
+    };
 
     // update the score
-     this.updateScore = function(newScore) {
-       this.currentScore = newScore;
-       if (this.currentScore > this.getHighScore()) {
-         this.highScore = newScore;
-         // set on the cookie
-         $cookieStore.put('ng-2048.highScore', newScore);
-       }
-     };
+    this.updateScore = function(newScore) {
+      this.currentScore = newScore;
+      if (this.currentScore > this.getHighScore()) {
+        this.highScore = newScore;
+        // set on the cookie
+        $cookieStore.put('ng-2048.highScore', newScore);
+      }
+    };
 
     this.movesAvailable = function() {
       return GridService.anyCellsAvailable() || GridService.tileMatchesAvailable();

@@ -3,16 +3,11 @@
 angular.module('Keyboard', [])
   .service('KeyboardService', function($document) {
 
-    var UP = 'up',
-      RIGHT = 'right',
-      DOWN = 'down',
-      LEFT = 'left';
-
     var keyboardMap = {
-      37: LEFT,
-      38: UP,
-      39: RIGHT,
-      40: DOWN
+      37: 'left',
+      38: 'up',
+      39: 'right',
+      40: 'left'
     };
 
     // initialize the keyboard event bindings
