@@ -7,7 +7,7 @@ angular.module('Keyboard', [])
       37: 'left',
       38: 'up',
       39: 'right',
-      40: 'left'
+      40: 'down'
     };
 
     // initialize the keyboard event bindings
